@@ -1,0 +1,10 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /index.html
+Allow: /upcoming-events.html
+Disallow: /media/
+Disallow: /fafo.html
+Disallow: /404.html
+
