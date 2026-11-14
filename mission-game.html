@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080808">
+<meta name="description" content="Rebuild and memorize The Devoted MC mission statement in this interactive word game."><title>The Mission | The Devoted MC</title>
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="mission-game.css"></head>
+<body><div class="bg-eagle" aria-hidden="true"></div>
+<header class="top"><div class="wrap top-inner glass"><nav class="nav" aria-label="Main navigation">
+  <a href="index.html">Home</a><a href="index.html#mission">Mission Statement</a><a href="contact-us.html">Contact</a><a href="games.html" aria-current="page">Games</a>
+</nav></div></header>
+
+<main class="wrap mp-page">
+  <section class="mp-hero glass" aria-labelledby="mp-game-title">
+    <div class="mp-heading-block">
+      <img class="mp-mark" src="assets/tdmc-600x600.png" alt="The Devoted MC emblem" width="71" height="71">
+      <div><p class="mp-kicker">THE DEVOTED MC • WORD GAME</p><h1 class="mp-title" id="mp-game-title">THE <em>MISSION</em></h1><p class="mp-subtitle">The whole statement. In the right order.</p></div>
+    </div>
+    <div class="mp-head-actions"><a class="mp-navback" href="games.html">ALL GAMES</a></div>
+  </section>
+  <section class="mp-stats" aria-label="Game statistics">
+    <div class="mp-stat"><span class="mp-stat-label">SECTION</span><span id="mp-line" class="mp-stat-value">00 / 15</span></div>
+    <div class="mp-stat"><span class="mp-stat-label">SCORE</span><span id="mp-score" class="mp-stat-value">0000</span></div>
+    <div class="mp-stat"><span class="mp-stat-label">BEST</span><span id="mp-best" class="mp-stat-value">0000</span></div>
+    <div class="mp-stat"><span class="mp-stat-label">CLOCK</span><span id="mp-clock" class="mp-stat-value">NO TIMER</span></div>
+  </section>
+  <div id="mp-stage-meter" class="mp-meter" role="progressbar" aria-label="Game completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="mp-progress"></div></div>
+  <div class="mp-scene" id="mp-scene" aria-hidden="true">
+    <div class="mp-far-hills"></div>
+    <svg class="mp-sky-bird" viewBox="0 0 120 30" aria-hidden="true"><path d="M3 17 Q26 0 57 18 Q88 -3 117 17 Q85 10 61 24 Q33 8 3 17"/></svg>
+    
+    <div class="mp-scene-status" id="mp-scene-status">READY WHEN YOU ARE</div>
+    <img src="assets/obstacle-deer.webp" class="mp-deer" alt="" width="90" height="116">
+    <img src="assets/obstacle-deer.webp" class="mp-deer mp-deer-second" alt="" width="70" height="85">
+    <div class="mp-road"></div>
+    <div class="mp-finish-marker" aria-hidden="true">
+      <svg class="mp-finish-star" viewBox="0 0 100 100" focusable="false">
+        <defs><linearGradient id="mp-star-shine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff4be"/><stop offset=".37" stop-color="#f6c95b"/><stop offset=".7" stop-color="#d99925"/><stop offset="1" stop-color="#a8651a"/></linearGradient></defs>
+        <path d="M50 5 L62.4 34.6 L94.3 37.1 L70 58 L77.5 89.4 L50 72.8 L22.5 89.4 L30 58 L5.7 37.1 L37.6 34.6 Z" fill="url(#mp-star-shine)" stroke="#fff0ad" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M50 14 L59 39 L85 41 L65 58" fill="none" stroke="#fff8d7" stroke-width="3" stroke-linecap="round" opacity=".67"/>
+      </svg><span>FINISH</span>
+    </div>
+    <div class="mp-miss-effects" aria-hidden="true"><span class="mp-exhaust-puff mp-puff-a"></span><span class="mp-exhaust-puff mp-puff-b"></span><span class="mp-exhaust-puff mp-puff-c"></span><span class="mp-skid-smoke"></span><span class="mp-skid-smoke mp-skid-smoke-two"></span></div>
+    <img id="mp-rider" src="assets/eagle-rider.webp" class="mp-rider" alt="" width="177" height="130">
+  </div>
+  <div class="mp-panel glass" id="mp-panel" aria-live="off"></div>
+  <div class="mp-bottom-controls glass">
+    <p class="mp-notice" id="mp-notice" role="status" aria-live="polite">The actual mission statement. Nothing rewritten.</p>
+    <div class="mp-meta-actions"><button type="button" id="mp-sound" aria-pressed="true">SOUND: ON</button><button type="button" id="mp-reset">CHOOSE MODE</button></div>
+  </div>
+  <p class="mp-footer-note">Tap word tiles, or use keys 1–9. Backspace undoes the last word. Progress stays on this device.</p>
+  <span id="mp-phase" class="sr-only">READY</span><span id="mp-streak" class="sr-only">0</span>
+</main>
+  <footer class="footer wrap">
+    <div class="footer-shell glass">
+      <div class="footer-fafo">
+        <img src="assets/fafo.png" alt="FAFO">
+      </div>
+      <div class="footer-copy">
+        <p class="support">Support Your Local MC</p>
+        <p>All Rights Reserved. Copyright © 2018–<span data-copyright-year>2026</span> The Devoted Motorcycle Club, Inc.</p>
+        <p class="tm">TDMC logo (Eagle, Cross Rifles, Flag) ™ is trademarked; owned by The Devoted Motorcycle Club, Inc. No usage of the content on this website is permitted. Unauthorized reproduction is punishable by law.</p>
+      </div>
+    </div>
+  </footer>
+<script>document.querySelectorAll('[data-copyright-year]').forEach(function(el){el.textContent=new Date().getFullYear();});</script>
+<script src="mission-game.js" defer></script>
+</body></html>
