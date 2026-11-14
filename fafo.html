@@ -1,36 +1,54 @@
-<!DOCTYPE html>
-<html>
-<title>FAFO</title>
-<link rel="icon" type="image/x-icon" href="/media/TDMC-ROUND-TM_180x180.ico">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="FAFO | The Devoted MC.">
+  <title>FAFO | The Devoted MC</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<center>
-<BODY bgcolor=”#000000”>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<img src="media/fafo.png" alt="FAFO" style="width:320px;height:100px;">
-<br> 
-<br>
-<p><img src="media/tdmc-600x600.png" alt="TDMC" style="width:60px;height:60px;"><font color="tan">TDMC Logo (Eagle, Cross Rifles, Flag) &trade;</p>
-<p><font color="tan">Logo is trademarked; owned by The Devoted Motorcycle Club, Inc. No usage of the content on this website is permitted. Unauthorized reproduction is punishable by law.</p>
+  <div class="bg-eagle" aria-hidden="true"></div>
+  <header class="top">
+    <div class="wrap top-inner glass">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#mission">Mission Statement</a>
+        <a href="contact-us.html">Contact</a>
+        <a href="game.html">Game</a>
+      </nav>
+    </div>
+  </header>
 
-<a href="https://thedevotedmc.com"><img src="media/homepage.png" alt="Back to Homepage" style="width:223px;height:70px;"></a> 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<a href="https://member.thedevotedmc.com/index.php/login" target="_blank" rel="noopener noreferrer"><p>Member Login</p></a>
-<p><font color="tan">All Rights Reserved. Copyright &copy; 2018-<script>document.write(new Date().getFullYear())</script> The Devoted Motorcycle Club, Inc.</p>
+  <main class="wrap">
+    <section class="section subpage glass" aria-labelledby="fafo-title">
+      <h1 id="fafo-title" class="sr-only">FAFO</h1>
+      <img class="fafo-art" src="assets/fafo.png" alt="FAFO">
+      <div class="patch-shell">
+        <img src="assets/tdmc-600x600.png" alt="The Devoted Motorcycle Club official emblem">
+      </div>
+      <p class="quiet">Support your local MC.</p>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <div class="footer-shell glass">
+      <div class="footer-fafo">
+        <img src="assets/fafo.png" alt="FAFO">
+      </div>
+      <div class="footer-copy">
+        <p class="support">Support Your Local MC</p>
+        <p>All Rights Reserved. Copyright © 2018–<span data-copyright-year>2026</span> The Devoted Motorcycle Club, Inc.</p>
+        <p class="tm">TDMC logo (Eagle, Cross Rifles, Flag) ™ is trademarked; owned by The Devoted Motorcycle Club, Inc. No usage of the content on this website is permitted. Unauthorized reproduction is punishable by law.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // On each page load, update the copyright year automatically.
+    document.querySelectorAll('[data-copyright-year]').forEach(function (year) {
+      year.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
-</html> 
+</html>

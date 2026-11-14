@@ -1,38 +1,63 @@
-
-<!DOCTYPE html>
-<html>
-<title>The Devoted Motorcycle Club</title>
-<link rel="icon" type="image/x-icon" href="/media/TDMC-ROUND-TM_180x180.ico">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Contact The Devoted MC.">
+  <title>Contact | The Devoted MC</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<p></p>
-<body>
-<center>
-<BODY bgcolor=”#000000”> 
-<img src="media/tdmc-600x600.png" alt="TDMC" style="width:300px;height:300px;">
-<br>
-<br>
-<br>
-<br>
-<a href="mailto:thedevotedmc@gmail.com?subject=Email from webpage"><img src="media/email-us.png" alt="Email Us" style="width:223px;height:70px;"></a>&emsp;
+  <div class="bg-eagle" aria-hidden="true"></div>
+  <header class="top">
+    <div class="wrap top-inner glass">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#mission">Mission Statement</a>
+        <a href="contact-us.html" aria-current="page">Contact</a>
+        <a href="game.html">Game</a>
+      </nav>
+    </div>
+  </header>
 
-<a href="http://m.me/supportthedevoted" target="_blank" rel="noopener noreferrer"><img src="media/facebook-message.png" alt="Message on Facebook" style="width:223px;height:70px;"></a>&emsp;
-<br>
-<br>
-<br>
-<br>
-<a href="https://thedevotedmc.com"><img src="media/homepage.png" alt="Back to Homepage" style="width:223px;height:70px;"></a>
-</center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<a href="fafo.html"><img src="media/fafo.png" alt="FAFO" style="width:90px;height:28px;"></a>
-<p><font color="tan">TDMC Logo (Eagle, Cross Rifles, Flag) &trade;</p>
-<p><font color="tan">Logo is trademarked; owned by The Devoted Motorcycle Club. No usage of the content on this website is permitted. Unauthorized reproduction is punishable by law.</p>
-<p><font color="tan">Support your local MC</p>
-<p><font color="tan">All Rights Reserved. Copyright &copy; 2018-<script>document.write(new Date().getFullYear())</script> The Devoted MC</p>
+  <main class="wrap">
+    <section class="section subpage glass" aria-labelledby="contact-title">
+      <div class="contact-content">
+        <div class="patch-shell">
+          <img src="assets/tdmc-600x600.png" alt="The Devoted Motorcycle Club official emblem">
+        </div>
+        <h1 id="contact-title" class="abaddon contact-title">CONTACT US</h1>
+        <p class="email">thedevotedmc@gmail.com</p>
+        <div class="contact-actions">
+          <a class="mail-btn" href="mailto:thedevotedmc@gmail.com">Email The Club</a>
+          <a class="messenger-btn" href="https://m.me/supportthedevoted" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.7 8.45 8.1 8.1 0 0 1-3.7-.8L4 20.5l1.2-4A8.4 8.4 0 0 1 3 11.5 8.7 8.7 0 0 1 12 3a8.7 8.7 0 0 1 9 8.5Z"/><path d="m6.7 13.9 4.2-4.3 2.8 2.5 3.7-2.5-4.2 4.3-2.8-2.5-3.7 2.5Z" fill="currentColor" stroke="none"/></svg>
+            Message Us on Facebook
+          </a>
+        </div>
+        <p class="quiet">Contact the club by email or Facebook Messenger.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <div class="footer-shell glass">
+      <div class="footer-fafo">
+        <img src="assets/fafo.png" alt="FAFO">
+      </div>
+      <div class="footer-copy">
+        <p class="support">Support Your Local MC</p>
+        <p>All Rights Reserved. Copyright © 2018–<span data-copyright-year>2026</span> The Devoted Motorcycle Club, Inc.</p>
+        <p class="tm">TDMC logo (Eagle, Cross Rifles, Flag) ™ is trademarked; owned by The Devoted Motorcycle Club, Inc. No usage of the content on this website is permitted. Unauthorized reproduction is punishable by law.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // On each page load, update the copyright year automatically.
+    document.querySelectorAll('[data-copyright-year]').forEach(function (year) {
+      year.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
-</html> 
-
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Play The Devoted MC Eagle Rider, a motorcycle jumping game with cars, deer and optional sound effects.">
+  <title>Eagle Rider Game | The Devoted MC</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/eagle-rider.webp" as="image" type="image/webp">
+</head>
+<body>
+  <div class="bg-eagle" aria-hidden="true"></div>
+  <header class="top">
+    <div class="wrap top-inner glass">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#mission">Mission Statement</a>
+        <a href="contact-us.html">Contact</a>
+        <a href="game.html" aria-current="page">Game</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap game-page">
+    <div class="game-head glass">
+      <div class="game-headline">
+        <img class="game-head-logo" src="assets/tdmc-600x600.png" alt="The Devoted MC emblem">
+        <div>
+          <h1 class="game-title">EAGLE RIDER</h1>
+          <p class="game-subtitle">The Black &amp; Tan Road Run</p>
+        </div>
+      </div>
+      <div class="game-pills" aria-label="Game statistics">
+        <div class="game-stat"><span class="game-stat-label">SCORE</span><span class="game-stat-value" id="game-score">0000</span></div>
+        <div class="game-stat"><span class="game-stat-label">BEST</span><span class="game-stat-value" id="game-best">0000</span></div>
+        <div class="game-stat"><span class="game-stat-label">SPEED</span><span class="game-stat-value" id="game-speed">2.0×</span></div>
+      </div>
+    </div>
+    <div class="game-left">
+        <div class="game-board">
+      <canvas id="road-run" role="img" aria-label="Interactive game: bald eagle riding a motorcycle; jump over cars, deer, cones, ducks, and other hazards; watch for warnings, or use ramps to fly">Your browser needs HTML canvas to play this game.</canvas>
+      <div class="game-cover" id="game-cover">
+        <div class="game-cover-inner">
+          <h2 class="game-cover-title" id="game-cover-title">Ready to ride?</h2>
+          <div class="game-cover-impact" id="game-cover-impact" hidden>
+            <img id="game-cover-impact-img" src="" alt="" width="110" height="84">
+          </div>
+          <p class="game-cover-text" id="game-cover-text">Starts at 2× speed! Watch for swerving cars, deer, ramps, and strange roadside surprises. Sound starts when you ride. Listen for the deer and driver one-liners!</p>
+          <button class="game-primary" type="button" id="game-start">Start Riding</button>
+        </div>
+      </div>
+    </div>
+    <div class="game-controls glass">
+      <p class="game-instructions"><span class="game-kbd">SPACE</span> or <span class="game-kbd">↑</span> to jump &nbsp;·&nbsp; <strong>Tap the road</strong> on mobile &nbsp;·&nbsp; <span class="game-kbd">P</span> to pause</p>
+      <div class="game-control-buttons"><button class="game-sound" id="game-sound" type="button" aria-pressed="true" title="Turn game sound on or off">Sound: On</button><button class="game-pause" id="game-pause" type="button" disabled>Pause</button></div>
+    </div>
+    <p class="game-tip">Starts at 2×. Watch for deer and swerving drivers. Every crash has its own animation. Sound is optional. Works offline.</p>
+      </div>
+  </main>
+  <footer class="footer wrap">
+    <div class="footer-shell glass">
+      <div class="footer-fafo"><img src="assets/fafo.png" alt="FAFO"></div>
+      <div class="footer-copy">
+        <p class="support">Support Your Local MC</p>
+        <p>All Rights Reserved. Copyright © 2018–<span data-copyright-year>2026</span> The Devoted Motorcycle Club, Inc.</p>
+        <p class="tm">TDMC logo (Eagle, Cross Rifles, Flag) ™ is trademarked; owned by The Devoted Motorcycle Club, Inc. No usage of the content on this website is permitted. Unauthorized reproduction is punishable by law.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="game.js"></script>
+  <script>
+    document.querySelectorAll('[data-copyright-year]').forEach(function (year) {
+      year.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
