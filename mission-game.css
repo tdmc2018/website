@@ -6,7 +6,7 @@
 .mp-heading-block{display:flex;align-items:center;gap:18px;min-width:0}
 .mp-mark{width:71px;height:71px;object-fit:contain;filter:drop-shadow(0 6px 14px #0009);flex:none}
 .mp-kicker,.mp-small-label{margin:0 0 5px;font-size:10px;letter-spacing:.24em;font-weight:850;color:#c7a887;text-transform:uppercase}
-.mp-title{font:700 clamp(22px,3.5vw,40px)/1.06 "Abaddon", "Abaddon II",Impact,"Arial Narrow",sans-serif;letter-spacing:.025em;color:#f1dec7;margin:0}
+.mp-title{font:850 clamp(22px,3.5vw,40px)/1.1 var(--font-ui);letter-spacing:.025em;color:#f1dec7;margin:0}
 .mp-title em{font-style:normal;color:#d7b58b}
 .mp-subtitle{font-size:12px;letter-spacing:.04em;color:#c7b7a8;margin:7px 0 0}
 .mp-head-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -130,7 +130,7 @@
 .games-select{padding:23px 0 28px}
 .games-select-intro{padding:27px clamp(20px,4vw,40px);margin-bottom:18px}
 .games-select-intro p{margin:0;color:#c9b49b;font-size:13px;letter-spacing:.07em}
-.games-select-intro h1{margin:0 0 7px;font:700 clamp(32px,5vw,51px)/1.2 "Abaddon",Impact,"Arial Narrow",sans-serif;letter-spacing:.035em;color:#ecd5b7}
+.games-select-intro h1{margin:0 0 7px;font:850 clamp(32px,5vw,51px)/1.2 var(--font-ui);letter-spacing:.035em;color:#ecd5b7}
 .games-select-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .games-select-card{overflow:hidden;display:flex;flex-direction:column;padding:0!important}
 .games-select-art{position:relative;height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 51% 45%,#7a5c3960,transparent 55%),linear-gradient(135deg,#2b2520,#0a0908);border-bottom:1px solid #94745255}
@@ -140,7 +140,7 @@
 .games-select-art .games-select-crest{height:75%;width:70%;opacity:.92}
 .games-select-art .games-select-badge{position:absolute;left:15px;top:15px;padding:5px 10px;background:#17110cd9;border:1px solid #c6a1748c;border-radius:99px;color:#e8ca9d;font-size:10px;font-weight:850;letter-spacing:.12em}
 .games-select-content{padding:22px 25px 26px;display:flex;flex:1;flex-direction:column;align-items:flex-start}
-.games-select-content h2{font:700 clamp(25px,3vw,34px)/1.2 "Abaddon",Impact,"Arial Narrow",sans-serif;color:#e3c6a3;margin:0 0 10px}
+.games-select-content h2{font:850 clamp(25px,3vw,34px)/1.2 var(--font-ui);color:#e3c6a3;margin:0 0 10px}
 .games-select-content p{color:#c6b39d;font-size:14px;line-height:1.7;flex:1;margin:0 0 18px}
 .games-select-play{display:inline-block;background:linear-gradient(125deg,#e2bf92,#b58e63);color:#1f1710;border:1px solid #e7c9a0;border-radius:9px;padding:12px 20px;text-decoration:none;font-weight:900;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .games-select-play:hover{background:#f0d4ad}
