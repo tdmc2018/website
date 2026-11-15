@@ -1,4 +1,4 @@
-/* The Devoted MC · Eagle Rider V20
+/* The Devoted MC · Eagle Rider V20.2 (deer volume and car-skid polish)
    Single-player arcade runner: no libraries, no network calls.
    Game space is fixed-height and scales with the canvas. */
 (() => {
@@ -42,7 +42,7 @@
     for(const [kind,path,volume] of [
       ['carClear','assets/audio/car-clear.mp3',.85],
       ['carHit','assets/audio/car-hit.mp3',.9],
-      ['deerSpot','assets/audio/deer-spot.mp3',.86],
+      ['deerSpot','assets/audio/deer-spot.mp3',1.0],
       ['ramp','assets/audio/ramp-vroom.mp3',.85]
     ]){
       const clip=new Audio(path);
@@ -133,6 +133,15 @@
     source.connect(filter);filter.connect(gain);gain.connect(audioMaster);
     source.start(t);source.stop(t+duration+.01);
   }
+  // Momentarily lower the engine so warnings and voice clips can be heard.
+  // The original synthesized deer huff was masked by the engine's low tones.
+  function duckEngineFor(seconds){
+    if(!audioCtx||!engineGain||mode!=='playing'||!soundEnabled)return;
+    const t=audioCtx.currentTime;
+    engineGain.gain.cancelScheduledValues(t);
+    engineGain.gain.setTargetAtTime(.035,t,.035);
+    engineGain.gain.setTargetAtTime(.125,t+seconds,.12);
+  }
   function soundEffect(name){
     if(!soundEnabled)return;
     if(name==='ramp')playClip('ramp'); // MP3 must work even without Web Audio support.
@@ -144,8 +153,19 @@
       case 'horn':
         beep(320,302,.13,.085,'square');beep(255,246,.13,.065,'sawtooth');
         beep(320,296,.16,.075,'square',.18);break;
-      case 'squeal':hiss(.36,.20,1180,'bandpass');beep(900,540,.30,.026,'sine');break;
-      case 'deer':hiss(.19,.16,500,'lowpass');beep(175,115,.22,.045,'triangle');break;
+      case 'squeal':
+        // Distinct pitched rubber squeal, not the old loud air-release hiss.
+        beep(1550,970,.47,.18,'sawtooth');
+        beep(1080,700,.42,.09,'triangle',.045);
+        hiss(.14,.035,2300,'highpass',.02);
+        break;
+      case 'deer':
+        duckEngineFor(.50);
+        // Louder, more distinct low bellow before the animal bolts into the lane.
+        beep(190,96,.42,.25,'sawtooth');
+        beep(120,78,.38,.14,'triangle',.03);
+        hiss(.23,.085,430,'lowpass',.01);
+        break;
       case 'crash':hiss(.53,.26,920,'lowpass');beep(130,43,.46,.21,'sawtooth');break;
     }
   }
@@ -394,8 +414,8 @@
     if(score>=350 && Math.random()<.075){
       return types[9+Math.floor(Math.random()*3)];
     }
-    // Deer appear later and are uncommon; they are taller, but can be jumped.
-    if(score>=550 && Math.random()<.14)return types[7];
+    // Road-crossing deer ONLY use the roadside surprise sequence. Ordinary
+    // random spawning bypassed their field entrance and deer warning sound.
     return pool[Math.floor(Math.random()*pool.length)];
   }
   function spawn(){
@@ -465,16 +485,24 @@
     if(e.stage==='watch'){
       e.x-=speed*.015*dt; // deer waits / car idles on shoulder
       if(e.timer<=0){
-        if(e.willCross){e.stage='alert';e.timer=.64;showToast(e.kind==='deer'?'DEER ON THE SHOULDER!':'IDIOT DRIVER AHEAD!',1.3,'#ffdfab');if(e.kind==='car'){soundEffect('horn');}}
+        if(e.willCross){
+          e.stage='alert';e.timer=.64;
+          showToast(e.kind==='deer'?'DEER ON THE SHOULDER!':'IDIOT DRIVER AHEAD!',1.3,'#ffdfab');
+          // Deer emerges from the field: deer huff first, voice only when it bolts.
+          if(e.kind==='deer')soundEffect('deer');
+          else soundEffect('horn');
+        }
         else{e.stage='leave';e.timer=1.0;}
       }
     }else if(e.stage==='alert'){
       e.x-=speed*.018*dt;
       if(e.timer<=0){
         e.stage='dash';e.timer=.72;
-        if(e.kind==='deer')shoutAtDriver('deerSpot'); // only a deer charging into the road
+        // Deer: after the huff during the alert, yell "Oh shit!" as it runs.
+        // Cars have their own squeal and driver lines; never trigger deer audio.
+        if(e.kind==='deer'){duckEngineFor(1.45);shoutAtDriver('deerSpot');}
+        else soundEffect('squeal');
         showToast(e.kind==='deer'?'DEER RUNNING!':'CAR CUTTING IN!',1.25,'#ffd28e');
-        soundEffect(e.kind==='deer'?'deer':'squeal');
       }
     }else if(e.stage==='dash'){
       // Animate a diagonal dive toward the lane. Small horizontal advance
@@ -777,7 +805,10 @@
         // Soft roadside dust replaces the distracting straight speed streaks.
         const pulse=(Math.sin(t*8)+1)*.5;
         for(let i=0;i<4;i++){
-          const dx=e.x-10-i*11, dy=base-7-i*1.4;
+          // Cars in our artwork face left; their rear wheels are on the RIGHT.
+          // Put the skid dust behind the rear wheels, not at the front bumper.
+          const dx=e.kind==='car'?e.x+110+i*13:e.x-10-i*11;
+          const dy=base-7-i*1.4;
           const r=4.8+i*1.8+pulse*1.1;
           ellipse(dx,dy,r,r*.49,i%2?'#bba18b':'#8f8074',.20-(i*.025));
         }
